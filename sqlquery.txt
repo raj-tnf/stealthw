@@ -1,0 +1,25 @@
+Members Table:   | ID | Name | Address | Phone Number | Age |
+Organization Table:   | ID | Member_ID | Location | Dues |
+
+Assumption:
+1. Primary key in Members table is ID.
+2. Foreign key in Organization table is Member_ID.
+
+
+Question#1: Write a query that lists each member name, address, dues and location?
+Answer:
+		select m.name, m.address, o.dues, o.location from members m
+		inner join
+		organization o on m.id = o.member_id;
+
+
+Question#2: Write a SQL Query to pull all members that are over 45
+Answer:
+		select id, name from members where age > 45;
+
+
+Question#3: Write a SQL Query to pull all members that have a dues value of 0.
+Answer:
+		select m.name from members m
+		inner join
+		organization o on m.id = o.member_id where o.dues = 0;
